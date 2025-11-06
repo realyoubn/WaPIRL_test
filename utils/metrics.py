@@ -4,15 +4,16 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from pytorch_lightning.metrics import MulticlassROC, MulticlassPrecisionRecall
-from pytorch_lightning.metrics.functional import auc, precision, recall
+from torchmetrics.classification import MulticlassROC, MulticlassPrecisionRecallCurve
+from torchmetrics.functional import precision, recall
+from torchmetrics.utilities.compute import auc
 
 
 class MultiAUPRC(nn.Module):
     def __init__(self, num_classes: int):
         super(MultiAUPRC, self).__init__()
         self.num_classes = num_classes
-        self.multi_prc = MulticlassPrecisionRecall(num_classes=num_classes)
+        self.multi_prc = MulticlassPrecisionRecallCurve(num_classes=num_classes)
 
     def forward(self, logits: torch.FloatTensor, labels: torch.LongTensor):
         multi_prcs = self.multi_prc(

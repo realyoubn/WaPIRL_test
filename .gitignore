@@ -134,3 +134,6 @@ data/
 # IDE
 .vscode
 .idea
+
+.conda
+wbm/
