@@ -8,7 +8,7 @@ import datetime
 
 
 class ConfigBase(object):
-    def __init__(self, args: (dict, argparse.Namespace) = None, **kwargs):
+    def __init__(self, args: (dict | argparse.Namespace) = None, **kwargs):
 
         if isinstance(args, dict):
             attrs = args
@@ -23,7 +23,7 @@ class ConfigBase(object):
             setattr(self, k, v)
 
         if not hasattr(self, 'hash'):
-            self.hash = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+            self.hash = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     @classmethod
     def parse_arguments(cls):

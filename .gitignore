@@ -136,4 +136,4 @@ data/
 .idea
 
 .conda
-wbm/
+checkpoints/

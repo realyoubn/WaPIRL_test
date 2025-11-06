@@ -118,8 +118,11 @@ class WM811KTransform(object):
         Crop-based augmentation, with `albumentations`.
         Expects a 3D numpy array of shape [H, W, C] as input.
         """
+        # 确保 size 是元组
+        if isinstance(size, int):
+            size = (size, size)
         transform = [
-            A.RandomResizedCrop(*size, scale=scale, ratio=ratio, interpolation=cv2.INTER_NEAREST, p=1.0),
+            A.RandomResizedCrop(size=size, scale=scale, ratio=ratio, interpolation=cv2.INTER_NEAREST, p=1.0),
             ToWBM(),
         ]
 

@@ -6,7 +6,7 @@
 --decouple_input
 --epochs 100
 --batch_size 256
---num_workers 1
+--num_workers 0
 --gpus 0
 --optimizer sgd
 --learning_rate 0.01
