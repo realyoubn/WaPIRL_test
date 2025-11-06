@@ -41,7 +41,7 @@ class WM811kProcessor(object):
     def load_image(filepath: str = 'image.png'):
         return Image.open(filepath)
 
-    def write_images(self, root: str, indices: list or tuple):
+    def write_images(self, root: str, indices: list | tuple):
         """Write wafer images to .png files."""
         os.makedirs(root, exist_ok=True)
         with tqdm.tqdm(**get_tqdm_config(total=len(indices), leave=True, color='yellow')) as pbar:
