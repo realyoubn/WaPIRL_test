@@ -9,7 +9,11 @@ from torch.utils.data.sampler import Sampler
 
 class ImbalancedDatasetSampler(Sampler):
     def __init__(self, dataset, indices=None, num_samples=None):
-        super(ImbalancedDatasetSampler, self).__init__(dataset)
+        # Remove dataset from parent constructor call
+        super(ImbalancedDatasetSampler, self).__init__()
+        
+        # We still need to store the dataset for internal use
+        self.dataset = dataset
 
         if indices is None:
             self.indices = list(range(len(dataset)))

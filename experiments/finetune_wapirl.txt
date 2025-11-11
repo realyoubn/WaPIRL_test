@@ -16,7 +16,7 @@
 --warmup_steps 0
 --checkpoint_root ./checkpoints
 --write_summary
---pretrained_model_file /path/to/file
+--pretrained_model_file ./checkpoints/wm811k/wapirl/resnet.18/crop/2025-11-10_10-44-46/best_model.pt
 --pretrained_model_type wapirl
 --label_proportion 1.00
 --label_smoothing 0.1
